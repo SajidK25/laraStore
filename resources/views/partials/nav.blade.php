@@ -14,7 +14,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                @if (!$signedIn)
+                @if(\Auth::guest())
                     <li><a href="{{ url('/login') }}" class="btn-flat" id="nav-bar-Login">Login</a></li>
                     <li><a href="{{ url('/register') }}" class="btn btn-primary waves-effect waves-light">Register</a></li>
                 @else

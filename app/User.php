@@ -25,11 +25,15 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public static function boot(){
-      parent::boot();
-      static::creating(function($user){
-        $user->token->str_random(30);
-      });
+    public static function boot() {
+        // Reference the parent class
+        parent::boot();
+
+        // When we are creating a record (for user registration),
+        // then we want to set a token to some random string.
+        static::creating(function($user) {
+            $user->token = str_random(30);
+        });
     }
 
     public function confirmEmail() {
